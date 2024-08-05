@@ -55,7 +55,6 @@ const LoginModal = () => {
   const footerContent = (
     <div className="text-neutral-400 text-center mt-4">
       <p>
-        {" "}
         Don't have an account?
         <span
           onClick={onToggle}
