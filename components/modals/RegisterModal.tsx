@@ -30,29 +30,30 @@ const RegisterModal = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
+     
 
-        await axios.post('/api/register', {
-          email,
-          password,
-          username,
-          name
-        });
+      await axios.post("/api/register", {
+        email,
+        password,
+        username,
+        name,
+      });
 
-        toast.success("Account created.")
+      toast.success("Account created.");
 
-        signIn('credentials',{
-          email,
-          password
-        })
+      signIn("credentials", {
+        email,
+        password,
+      });
 
       registerModal.onClose();
     } catch (error) {
       console.log(error);
-      toast.error('Something went wrong')
+      toast.error("Something went wrong");
     } finally {
       setIsLoading(false);
     }
-  }, [registerModal, email,password,username,name]);
+  }, [registerModal, email, password, username, name]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -79,6 +80,7 @@ const RegisterModal = () => {
 
       <Input
         placeholder="Password"
+        type="password"
         onChange={(e) => setPassword(e.target.value)}
         value={password}
         disabled={isLoading}
