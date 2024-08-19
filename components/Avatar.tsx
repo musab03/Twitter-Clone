@@ -18,7 +18,7 @@ const Avatar: React.FC<AvatarProps> =({
     const { data: fetchedUser} = useUser(userId);
 
     const onClick = useCallback((event:any)=>{
-        event.stopPropogation()
+        event.stopPropagation()
 
         const url = `/users/${userId}`
 
@@ -43,7 +43,7 @@ const Avatar: React.FC<AvatarProps> =({
                 }}
                 alt = 'Avatar'
                 onClick={onClick}
-                src={fetchedUser?.profileImage || '/images/placeholder.png'}
+                src={fetchedUser?.profileImage || '/images/placeholder.jpg'}
                 />
         </div>
     )
